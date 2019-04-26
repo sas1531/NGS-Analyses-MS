@@ -5,7 +5,7 @@
 #SBATCH --ntasks=8 # Run on a multiple CPU
 #SBATCH --mem=64gb # Job memory request
 #SBATCH --time=12:00:00 # Time limit hrs:min:sec
-#SBATCH --output=/gpfs/scratch/sas1531/ngs6_coursework/ngs6_%j.log # Standard output and error log
+#SBATCH --output=/gpfs/scratch/sas1531/ngs6_coursework/test/ngs6_%j.log # Standard output and error log
 #SBATCH -p cpu_short
 
 # Load modules
@@ -17,7 +17,7 @@ module load bowtie2/2.3.4.1
 module load samtools/1.9
 
 # Download datasets
-fastq-dump --split-files ${1} --gzip -O /gpfs/scratch/sas1531/ngs6_coursework/
+fastq-dump ${1} --gzip -O /gpfs/scratch/sas1531/ngs6_coursework/
 
 # Remove fastq-dump directory
 rm -r ~/ncbi
